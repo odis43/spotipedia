@@ -12,13 +12,13 @@ const headingStyles = {
   maxWidth: 320,
 }
 const headingAccentStyles = {
-  color: "#663399",
+  color: "#1DB954",
 }
 const paragraphStyles = {
   marginBottom: 48,
 }
 const codeStyles = {
-  color: "#8A6534",
+  color: "#191414",
   padding: 4,
   backgroundColor: "#FFF4DB",
   fontSize: "1.25rem",
@@ -133,7 +133,7 @@ const IndexPage = () => {
       <h1 style={headingStyles}>
         Spotipedia
         <br />
-        <span style={headingAccentStyles}>— discover your favourite songs! </span>
+        <span style={headingAccentStyles}>— A Musician's tool. </span>
         
       </h1>
      
