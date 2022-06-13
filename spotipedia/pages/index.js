@@ -1,8 +1,34 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {useRouter } from 'next/router'
 
-export default function Home() {
+const CLIENT_ID = "caff0c78d3fe4c8d81c91bc194f517a0"; 
+const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
+const REDIRECT_URL_AFTER_LOGIN = "http://localhost:3000/home";
+const SPACE_DELIMITER = "%20";
+const SCOPES = [
+  "user-read-currently-playing",
+  "user-read-playback-state",
+  "playlist-read-private",
+  "user-read-private",
+  "user-read-email",
+  "user-top-read",
+  "user-read-recently-played",
+  "",
+
+
+
+];
+const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
+
+
+const handleLogin = () => {
+  window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
+};
+
+
+function Login() {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +39,8 @@ export default function Home() {
 
       <main className={styles.main}>
        <h1>Welcome to Spotipedia</h1>
+
+       <a onClick={handleLogin} className="btn-get-started  align-items-center justify-content-center align-self-center"> <span> Get started </span> </a>
       </main>
 
       <footer className={styles.footer}>
@@ -30,3 +58,6 @@ export default function Home() {
     </div>
   )
 }
+
+
+export default Login
